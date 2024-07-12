@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.configuration
+package uk.gov.hmrc.api.conf
 
 import com.typesafe.config.ConfigFactory
 import org.scalatest.matchers.should.Matchers

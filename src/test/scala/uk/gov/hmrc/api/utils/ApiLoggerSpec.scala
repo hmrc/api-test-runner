@@ -14,12 +14,22 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.utilities
+package uk.gov.hmrc.api.utils
 
-import org.slf4j.{Logger, LoggerFactory}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
+import org.slf4j.Logger
 
-object ApiLogger {
+class ApiLoggerSpec extends AnyWordSpec with Matchers {
 
-  val log: Logger = LoggerFactory.getLogger("[API Logger]")
+  "ApiLogger" should {
 
+    "initialise the logger correctly" in {
+      val logger = ApiLogger.log
+
+      logger   should not be null
+      logger shouldBe a[Logger]
+    }
+
+  }
 }
