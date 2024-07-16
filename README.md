@@ -19,7 +19,7 @@ See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/bl
 
 Test environment configuration is available. A configuration file is required to use it. See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/src/test/resources/application.conf).
 
-Create an url from a configuration file as follows:
+Create a url from a configuration file as follows:
 
 ```scala
 val url: String = TestEnvironment.url("service") + "/path"
