@@ -79,6 +79,11 @@ class TestEnvironmentSpec extends AnyWordSpec with Matchers {
       assert(exception.getMessage contains "No configuration setting found for key 'services.test-backend'")
     }
 
+    "still usable via TestConfiguration" in {
+      val url = TestConfiguration.url("service-backend") + "/local"
+
+      url shouldBe "http://localhost:1234/test/local"
+    }
   }
 
 }

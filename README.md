@@ -27,19 +27,6 @@ val url: String = TestEnvironment.url("service") + "/path"
 
 See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/src/test/scala/uk/gov/hmrc/api/service/IndividualsMatchingService.scala).
 
-
-### API Logger
-
-An API logger is available. 
-
-Use the logger as follows:
-
-```scala
-logger.info("Log a message")
-```
-
-See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/src/test/scala/uk/gov/hmrc/api/client/HttpClient.scala).
-
 ## Development
 
 ### Tests
