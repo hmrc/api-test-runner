@@ -19,26 +19,13 @@ See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/bl
 
 Test environment configuration is available. A configuration file is required to use it. See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/src/test/resources/application.conf).
 
-Create a url from a configuration file as follows:
+Create an url from a configuration file as follows:
 
 ```scala
 val url: String = TestEnvironment.url("service") + "/path"
 ```
 
 See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/src/test/scala/uk/gov/hmrc/api/service/IndividualsMatchingService.scala).
-
-
-### API Logger
-
-An API logger is available. 
-
-Use the logger as follows:
-
-```scala
-logger.info("Log a message")
-```
-
-See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/src/test/scala/uk/gov/hmrc/api/client/HttpClient.scala).
 
 ## Development
 
