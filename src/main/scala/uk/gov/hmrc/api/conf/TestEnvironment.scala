@@ -18,7 +18,7 @@ package uk.gov.hmrc.api.conf
 
 import com.typesafe.config.{Config, ConfigFactory}
 
-object TestEnvironment {
+trait TestEnvironment {
 
   private def configuration: Config            = ConfigFactory.load()
   private def environment: String              = configuration.getString("environment")
@@ -42,3 +42,8 @@ object TestEnvironment {
     environmentConfiguration.getString(s"services.$service.productionRoute")
 
 }
+
+object TestEnvironment extends TestEnvironment
+
+@deprecated("TestConfiguration is deprecated. Use TestEnvironment instead.") // for consistency with ui-test-runner
+object TestConfiguration extends TestEnvironment
