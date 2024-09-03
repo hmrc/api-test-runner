@@ -21,7 +21,7 @@ import com.typesafe.config.{Config, ConfigFactory}
 object TestEnvironment {
 
   private def configuration: Config            = ConfigFactory.load()
-  private def environment: String              = configuration.getString("environment")
+  def environment: String              = configuration.getString("environment")
   private def defaultConfiguration: Config     = configuration.getConfig("local")
   private def environmentConfiguration: Config = configuration.getConfig(environment).withFallback(defaultConfiguration)
 
