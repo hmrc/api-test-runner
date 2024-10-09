@@ -3,8 +3,8 @@ lazy val library = (project in file("."))
   .settings(
     name := "api-test-runner",
     majorVersion := 0,
-    scalaVersion := "2.13.13",
-    crossScalaVersions := Seq("2.13.13", "3.3.3"),
+    scalaVersion := "2.13.14",
+    crossScalaVersions := Seq("2.13.14", "3.3.3"),
     isPublicArtefact := true,
     libraryDependencies ++= Dependencies.compile
   )
