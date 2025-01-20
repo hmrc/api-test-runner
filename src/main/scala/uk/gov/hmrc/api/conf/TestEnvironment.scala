@@ -26,24 +26,28 @@ trait TestEnvironment {
   private def environmentConfiguration: Config = configuration.getConfig(environment).withFallback(defaultConfiguration)
 
   def url(service: String): String = {
-    val host = environment match {
-      case "local" => s"$serviceHost:${servicePort(service)}"
-      case _       => s"${environmentConfiguration.getString("services.host")}"
+    val port = environment match {
+      case "local" => s":${servicePort(service)}"
+      case _       => ""
     }
 
-    s"$host${serviceRoute(service)}"
+    s"$serviceHost$port${serviceRoute(service)}"
   }
 
-  private def serviceHost: String = environmentConfiguration.getString("services.host")
+  private def serviceHost: String =
+    environmentConfiguration.getString("services.host")
 
-  private def servicePort(service: String): String = environmentConfiguration.getString(s"services.$service.port")
+  private def servicePort(service: String): String =
+    environmentConfiguration.getString(s"services.$service.port")
 
   private def serviceRoute(service: String): String =
     environmentConfiguration.getString(s"services.$service.productionRoute")
-
 }
 
 object TestEnvironment extends TestEnvironment
 
-@deprecated("TestConfiguration is deprecated. Use TestEnvironment instead.") // for consistency with ui-test-runner
+@deprecated(
+  "TestConfiguration is deprecated. Use TestEnvironment instead.",
+  "0.4.0"
+) // for consistency with ui-test-runner
 object TestConfiguration extends TestEnvironment

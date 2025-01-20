@@ -4,7 +4,7 @@ lazy val library = (project in file("."))
     name := "api-test-runner",
     majorVersion := 0,
     scalaVersion := "2.13.14",
-    crossScalaVersions := Seq("2.13.14", "3.3.3"),
+    crossScalaVersions := Seq("2.13.14", "3.3.4"),
     isPublicArtefact := true,
     libraryDependencies ++= Dependencies.compile
   )
