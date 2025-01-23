@@ -17,7 +17,7 @@
 package uk.gov.hmrc.apitestrunner.http
 
 import org.apache.pekko.actor.ActorSystem
-import play.api.libs.ws.{DefaultWSProxyServer, StandaloneWSRequest}
+import play.api.libs.ws.{DefaultWSProxyServer, StandaloneWSClient, StandaloneWSRequest}
 import play.api.libs.ws.ahc.StandaloneAhcWSClient
 import uk.gov.hmrc.apitestrunner.config.TestRunnerConfig
 import uk.gov.hmrc.apitestrunner.util.ApiLogger
@@ -29,7 +29,7 @@ trait HttpClient {
   protected implicit val ec: ExecutionContext =
     ExecutionContext.global
 
-  protected val wsClient: StandaloneAhcWSClient = {
+  protected val wsClient: StandaloneWSClient = {
     implicit val as: ActorSystem = ActorSystem()
     StandaloneAhcWSClient()
   }
