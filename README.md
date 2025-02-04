@@ -15,6 +15,19 @@ Declare the library as a project dependency as follows:
 
 See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/project/Dependencies.scala).
 
+### Configuration
+
+- System property `environment` must be set in order to execute tests. Arguments `local`, `dev`, `qa` and `staging` are typically available, but will depend on your project configuration. See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/src/test/resources/application.conf).
+- System property `security.assessment` is available to enable or disable the security assessment. Arguments `true` and `false` are available, the default is `false`.
+
+Set system properties when executing tests as follows:
+
+```sbt
+sbt clean -Denvironment="<environment>" -Dsecurity.assessment="<security.asessment>" test
+```
+
+See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/run-tests.sh).
+
 ### Test environment configuration
 
 Test environment configuration is available. A configuration file is required to use it. See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/src/test/resources/application.conf).
