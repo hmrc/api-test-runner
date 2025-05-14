@@ -28,6 +28,26 @@ sbt clean -Denvironment="<environment>" -Dsecurity.assessment="<security.asessme
 
 See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/run-tests.sh).
 
+### Logging configuration
+
+Logging configuration is available via logback. You can add a configuration file to your project as follows:
+
+```xml
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{ISO8601} level=[%level] logger=[%logger] method=[%M] thread=[%thread] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
+```
+
+in `src/test/resources/logback.xml`.
+
 ### Test environment configuration
 
 Test environment configuration is available. A configuration file is required to use it. See an [example](https://github.com/hmrc/platform-example-api-scalatest-tests/blob/main/src/test/resources/application.conf).
